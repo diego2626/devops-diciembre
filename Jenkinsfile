@@ -15,7 +15,7 @@ pipeline {
         
        stage('Builder Image') {
             steps {
-                bat(script: 'echo "hola"' , returnStdout:true);  
+                bat "docker build -t diegoi3131/ms-test ."  
             }
         }
         
