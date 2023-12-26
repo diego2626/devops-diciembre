@@ -18,12 +18,13 @@ pipeline {
             }
         }
         
-        stage('Deploy EKS') {
-            steps {
-                    bat 'kubectl config use-context arn:aws:eks:us-east-2:964904475269:cluster/devops-cluster'
-                    bat 'aws eks --region us-east-2 update-kubeconfig --name devops-cluster' 
-                    bat 'kubectl apply -f k8s.yml'
-                    bat 'kubectl rollout restart deployment app-deployment'
+        stage('Deploy container instance') {
+            steps {withCredentials([usernamePassword(credentialsId: 'azureServicePrincipal', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
+                 bat "az login --service-principal -u %AZURE_CLIENT_ID% -p %AZURE_CLIENT_SECRET% --tenant e7960f8d-86e8-4c79-84ab-2e295180999e"
+                    def resourceGroup = 'Devops'
+                    def containerName = 'mycontainerinstance'
+
+                    bat "az container create --resource-group ${resourceGroup} --name ${containerName} --image diegoi3131/ms-test --cpu 1 --memory 1.5 --restart-policy OnFailure"
             }
         }
     }
