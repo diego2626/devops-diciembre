@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_CREDENTIALS = credentials('dockercrentials')
-    }
- 
     stages {
         stage('SCM') {
             steps {
@@ -14,8 +10,10 @@ pipeline {
         
        stage('Builder Image') {
             steps {
-                bat "echo %DOCKER_CREDENTIALS_PSW% | docker login --username %DOCKER_CREDENTIALS_USR% --password-stdin"
-                bat "docker build -t diegoi3131/ms-test ."  
+                 withCredentials([usernamePassword(credentialsId: 'dockercrentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                    bat "docker login --username %DOCKER_USERNAME% --password %DOCKER_PASSWORD%"
+                    bat "docker build -t diegoi3131/ms-test ."
+                }  
             }
         }
         
