@@ -33,7 +33,7 @@ pipeline {
                     bat "az container delete --resource-group ${env.RESOURCE_GROUP} --name ${env.CONTAINER_NAME} --yes"
 
                     // Crear el grupo de contenedores con los nuevos parámetros
-                    bat "az container create --resource-group ${env.RESOURCE_GROUP} --name ${env.CONTAINER_NAME} --image diegoi3131/ms-test --cpu 1 --memory 1.5 --restart-policy OnFailure"
+                    bat "az container create --resource-group ${env.RESOURCE_GROUP} --name ${env.CONTAINER_NAME} --image diegoi3131/ms-test --cpu 1 --memory 1.5 --restart-policy OnFailure -ip-address Public --ports 80 443"
                 }
             }
         }
