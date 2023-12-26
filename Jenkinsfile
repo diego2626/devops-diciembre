@@ -42,6 +42,10 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'azureServicePrincipal', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
 
                     bat "az login --service-principal -u %AZURE_CLIENT_ID% -p %AZURE_CLIENT_SECRET% --tenant e7960f8d-86e8-4c79-84ab-2e295180999e"
+
+                    bat "az account set --subscription 1ad9edfe-5a09-4163-a6a8-fd82618d3985"
+
+                    bat "az aks get-credentials --resource-group Devops --name myAKSCluster"
    
                     bat 'az aks get-credentials --resource-group Devops --name myAKSCluster --overwrite-existing'
 
