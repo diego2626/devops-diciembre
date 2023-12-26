@@ -58,5 +58,6 @@ pipeline {
                     bat 'kubectl get pods'
                 }
             }
+        }
     }
 }
