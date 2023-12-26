@@ -28,7 +28,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'azureServicePrincipal', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
                     bat "az login --service-principal -u %AZURE_CLIENT_ID% -p %AZURE_CLIENT_SECRET% --tenant e7960f8d-86e8-4c79-84ab-2e295180999e"
-                    bat "az container create --resource-group ${env.RESOURCE_GROUP} --name ${env.CONTAINER_NAME} --image diegoi3131/ms-test --cpu 1 --memory 1.5 --restart-policy OnFailure"
+                    bat "az container create --resource-group ${env.RESOURCE_GROUP} --name ${env.CONTAINER_NAME} --image diegoi3131/ms-test "
                 }
             }
         }
