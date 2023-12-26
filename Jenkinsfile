@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     environment {
-        AWS_REGION = 'us-east-2'
-        EKS_CLUSTER_NAME = 'devops-cluster'
+        DOCKER_CREDENTIALS = credentials('dockercrentials')
     }
  
     stages {
@@ -15,6 +14,7 @@ pipeline {
         
        stage('Builder Image') {
             steps {
+                bat "echo %DOCKER_CREDENTIALS_PSW% | docker login --username %DOCKER_CREDENTIALS_USR% --password-stdin"
                 bat "docker build -t diegoi3131/ms-test ."  
             }
         }
