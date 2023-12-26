@@ -13,6 +13,7 @@ pipeline {
                  withCredentials([usernamePassword(credentialsId: 'dockercrentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     bat "docker login --username %DOCKER_USERNAME% --password %DOCKER_PASSWORD%"
                     bat "docker build -t diegoi3131/ms-test ."
+                    bat "docker push diegoi3131/ms-test"
                 }  
             }
         }
