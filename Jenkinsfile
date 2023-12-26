@@ -37,5 +37,22 @@ pipeline {
                 }
             }
         }
+        stage('Deploy to AKS') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'azureServicePrincipal', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
+
+                    bat "az login --service-principal -u %AZURE_CLIENT_ID% -p %AZURE_CLIENT_SECRET% --tenant e7960f8d-86e8-4c79-84ab-2e295180999e"
+   
+                    bat 'az aks get-credentials --resource-group Devops --name myAKSCluster --overwrite-existing'
+
+                    bat 'kubectl apply -f k8s.yml'
+                    
+                    // Opcional: Exponer la aplicación si es necesario
+                    // bat 'kubectl expose deployment my-container-deployment --type=LoadBalancer --name=my-service'
+
+                    // Verificar el despliegue
+                    bat 'kubectl get pods'
+                }
+            }
     }
 }
