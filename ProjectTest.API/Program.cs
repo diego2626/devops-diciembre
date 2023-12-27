@@ -11,7 +11,7 @@ var app = builder.Build();
 app.MapGet("/", () =>
 {
     app.Logger.LogInformation("Initial Home Get");
-    return "GET - deployado por ci cd";
+    return "GET - deployado por ci cd desde git";
 });
 
 app.MapPost("/", () =>
