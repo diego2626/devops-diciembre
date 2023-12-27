@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\NetCore50\\Net6\\ProjectTest\\ProjectTest.API\\ProjectTest.API.csproj": {}
+    "C:\\Users\\diego\\source\\repos\\proyecto-final-codigo\\devops-diciembre\\ProjectTest.API\\ProjectTest.API.csproj": {}
   },
   "projects": {
-    "D:\\NetCore50\\Net6\\ProjectTest\\ProjectTest.API\\ProjectTest.API.csproj": {
+    "C:\\Users\\diego\\source\\repos\\proyecto-final-codigo\\devops-diciembre\\ProjectTest.API\\ProjectTest.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\NetCore50\\Net6\\ProjectTest\\ProjectTest.API\\ProjectTest.API.csproj",
+        "projectUniqueName": "C:\\Users\\diego\\source\\repos\\proyecto-final-codigo\\devops-diciembre\\ProjectTest.API\\ProjectTest.API.csproj",
         "projectName": "ProjectTest.API",
-        "projectPath": "D:\\NetCore50\\Net6\\ProjectTest\\ProjectTest.API\\ProjectTest.API.csproj",
-        "packagesPath": "C:\\Users\\Franco\\.nuget\\packages\\",
-        "outputPath": "D:\\NetCore50\\Net6\\ProjectTest\\ProjectTest.API\\obj\\",
+        "projectPath": "C:\\Users\\diego\\source\\repos\\proyecto-final-codigo\\devops-diciembre\\ProjectTest.API\\ProjectTest.API.csproj",
+        "packagesPath": "C:\\Users\\diego\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\diego\\source\\repos\\proyecto-final-codigo\\devops-diciembre\\ProjectTest.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Franco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -48,7 +45,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -60,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

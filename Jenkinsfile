@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-               git branch: 'master', url:'https://github.com/Stywar/devops-dotnet-account-23'
+               git branch: 'master', url:'https://github.com/diego2626/devops-diciembre.git'
             }
         }
         
