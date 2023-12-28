@@ -45,14 +45,10 @@ pipeline {
 
                     bat "az account set --subscription 1ad9edfe-5a09-4163-a6a8-fd82618d3985"
    
-                    bat 'az aks get-credentials --resource-group Devops --name myAKSCluster --overwrite-existing'
+                    bat 'az aks get-credentials --resource-group Devops --name AKSDevops --overwrite-existing'
 
-                    bat 'kubectl apply -f k8s.yml'
-                    
-                    // Opcional: Exponer la aplicación si es necesario
-                    // bat 'kubectl expose deployment my-container-deployment --type=LoadBalancer --name=my-service'
+                    bat 'kubectl apply -f k8s.yml'  
 
-                    // Verificar el despliegue
                     bat 'kubectl get pods'
                 }
             }
